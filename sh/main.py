@@ -10,7 +10,7 @@ from threading import Timer
 # import pyautogui
 
 from eye_tracker import EyeTracker
-# from screen import Screen
+from screen import Screen
 from quiz import Quiz
 
 
@@ -60,12 +60,12 @@ def main():
     camera.set(cv2.CAP_PROP_FRAME_HEIGHT, FRAME_HEIGHT)
 
     eye_tracker = EyeTracker()
-    # screen = Screen(SCREEN_WIDTH, SCREEN_HEIGHT)
+    screen = Screen(SCREEN_WIDTH, SCREEN_HEIGHT)
 
-    # screen.clean()
-    # screen.print_title()
-    # screen.print_instructions()
-    # screen.show()
+    screen.clean()
+    screen.print_title()
+    screen.print_instructions()
+    screen.show()
 
     quiz = None
     # cv2.namedWindow("frame")
