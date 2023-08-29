@@ -7,7 +7,7 @@ import cv2
 import numpy as np
 from enum import Enum
 from threading import Timer
-import pyautogui
+# import pyautogui
 
 from eye_tracker import EyeTracker
 from screen import Screen
@@ -21,7 +21,7 @@ class Mode(Enum):
     BEGINNING = 3
     COMPLETED = 4
 
-RES_SCREEN = pyautogui.size() # RES_SCREEN[0] -> width
+# RES_SCREEN = pyautogui.size() # RES_SCREEN[0] -> width
                               # RES_SCREEN[1] -> heigth
 
 SCREEN_WIDTH = 1280

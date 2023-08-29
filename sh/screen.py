@@ -1,7 +1,7 @@
 import numpy as np
 import os
 import cv2
-import pyautogui
+# import pyautogui
 
 RES_SCREEN = pyautogui.size() # RES_SCREEN[0] -> width
                               # RES_SCREEN[1] -> heigth
