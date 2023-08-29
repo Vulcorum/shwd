@@ -12,6 +12,7 @@ from threading import Timer
 from eye_tracker import EyeTracker
 from screen import Screen
 from quiz import Quiz
+from picamera import PiCamera
 
 
 class Mode(Enum):
@@ -55,9 +56,14 @@ def nothing(val):
 def main():
     global mode
 
-    camera = cv2.VideoCapture(0)
-    camera.set(cv2.CAP_PROP_FRAME_WIDTH, FRAME_WIDTH)
-    camera.set(cv2.CAP_PROP_FRAME_HEIGHT, FRAME_HEIGHT)
+    camera = PiCamera()
+    camera.resolution = (FRAME_WIDTH, FRAME_HEIGHT)
+    camera.framerate = 24
+
+
+
+    # camera.set(cv2.CAP_PROP_FRAME_WIDTH, FRAME_WIDTH)
+    # camera.set(cv2.CAP_PROP_FRAME_HEIGHT, FRAME_HEIGHT)
 
     eye_tracker = EyeTracker()
     screen = Screen(SCREEN_WIDTH, SCREEN_HEIGHT)
@@ -77,8 +83,8 @@ def main():
     while True:
         print(mode)
 
-        _, frame = camera.read()
-
+        frame = np.empty((FRAME_WIDTH, FRAME_HEIGHT, 3), dtype=np.uint8)
+        camera.capture(frame, 'rgb')
         start = time.time()
         eye_tracker.update(frame)
         end = time.time()
@@ -169,7 +175,7 @@ def main():
                 timer_reading = Timer(TIME_READING, timeout_reading)
                 timer_reading.start()
 
-    camera.release()
+
     cv2.destroyAllWindows()
     os._exit(0)
 
