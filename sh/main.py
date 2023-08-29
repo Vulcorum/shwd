@@ -10,7 +10,7 @@ from threading import Timer
 # import pyautogui
 
 from eye_tracker import EyeTracker
-from screen import Screen
+# from screen import Screen
 from quiz import Quiz
 
 
