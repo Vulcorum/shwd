@@ -92,9 +92,9 @@ def main():
         # cv2.moveWindow("frame", int(RES_SCREEN[0] / 2 - FRAME_WIDTH / 3), screen.height + 75)
         # cv2.imshow('frame', dec_frame)
 
-        screen.clean()
-        screen.print_title()
-        screen.print_instructions()
+        # screen.clean()
+        # screen.print_title()
+        # screen.print_instructions()
 
         direction = eye_tracker.get_looking_direction()
         print("DIRECTION: {}".format(direction))
